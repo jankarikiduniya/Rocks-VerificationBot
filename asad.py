@@ -26,21 +26,22 @@ CaptchaDB = {}
 async def start_handler(_, event: Message):
     await event.reply_text("**ʜᴇʟʟᴏ sᴡᴇᴇᴛ ʜᴇᴀʀᴛ ɪ ᴀᴍ ʀᴏᴄᴋs ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ʙᴏᴛ ᴛᴏ ᴠᴇʀɪғʏ ᴛʜᴇ ɴᴇᴡ ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs ɪɴ ᴛᴇʟᴇɢʀᴀᴍ**👻\n\n**ɢɪᴠᴇ ᴍᴇ ʜᴇᴀʀᴛ** [ʟᴏᴠᴇ](https://t.me/Give_Me_Heart) **ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ**",
     link_preview=False,
-    buttons=(
+    reply_markup=InlineKeyboardMarkup(
       [
-        Button.url('💗 ʟᴏᴠᴇ 💗️', 'https://t.me/Give_Me_Heart'),
-        Button.url('👥 ɢʀᴏᴜᴘ 👥︎', 'https://t.me/Shayri_Music_Lovers'),
+        InlineKeyboardButton('💗 ʟᴏᴠᴇ 💗️', url=f'https://t.me/Give_Me_Heart'),
+        InlineKeyboardButton('👥 ɢʀᴏᴜᴘ 👥︎', url=f'https://t.me/Shayri_Music_Lovers'),
         ],
         [
-        Button.url('📣 ᴄʜᴀɴɴᴇʟ 📣️', 'https://t.me/AsadSupport'),
-        Button.url('👸 ǫᴜᴇᴇɴ 👸︎', 'https://t.me/Sonali_rajputt_Queen_Of_ROCKS'),
+        InlineKeyboardButton('📣 ᴄʜᴀɴɴᴇʟ 📣️', url=f'https://t.me/AsadSupport'),
+        InlineKeyboardButton('👸 ǫᴜᴇᴇɴ 👸︎', url=f'https://t.me/Sonali_rajputt_Queen_Of_ROCKS'),
         ],
         [
-        Button.url('❤️ ʙʀᴏ ❤️️', 'https://t.me/HarshitSharma361'),
-        Button.url('👑 ᴋɪɴɢ 👑︎', 'https://t.me/Dr_Asad_Ali'),
+        InlineKeyboardButton('❤️ ʙʀᴏ ❤️️', url=f'https://t.me/HarshitSharma361'),
+        InlineKeyboardButton('👑 ᴋɪɴɢ 👑︎', url=f'https://t.me/Dr_Asad_Ali'),
       ]
     )
   )
+
 
 
 @CaptchaBot.on_chat_member_updated()
