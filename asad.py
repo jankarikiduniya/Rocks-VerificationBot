@@ -51,8 +51,8 @@ async def welcome_handler(bot: Client, event: Message):
             try:
                 await bot.send_message(
                     chat_id=event.chat.id,
-                    text=f"{event.from_user.mention} again joined group without verifying!\n\n"
-                         f"He can try again after 10 minutes.",
+                    text=f"{event.from_user.mention} 🙄 **ᴏʏᴇ ɴᴏᴏʙ ʙɪɴᴀ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ɢʀᴏᴜᴘ ᴊᴏɪɴ ᴋɪʏᴀ**!\n\n"
+                         f"😜 **ʜᴇ ᴄᴀɴ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 10ᴍ**.",
                     disable_web_page_preview=True
                 )
                 await bot.restrict_chat_member(
@@ -74,9 +74,9 @@ async def welcome_handler(bot: Client, event: Message):
             )
             await bot.send_message(
                 chat_id=event.chat.id,
-                text=f"{event.from_user.mention}, to chat here, please verify that you are not a robot.",
+                text=f"{event.from_user.mention}, ❤️ **ᴛᴏ ᴄʜᴀᴛ ʜᴇʀᴇ ᴘʟᴇᴀsᴇ ᴠɪʀɪғʏ ᴛʜᴀᴛ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀ ʙᴏᴛ**",
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("Verify Now", callback_data=f"startVerify_{str(event.from_user.id)}")]
+                    [InlineKeyboardButton("ᴠᴇʀɪғʏ ɴᴏᴡ", callback_data=f"startVerify_{str(event.from_user.id)}")]
                 ])
             )
     except:
@@ -88,9 +88,9 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
     if cb.data.startswith("startVerify_"):
         __user = cb.data.split("_", 1)[-1]
         if cb.from_user.id != int(__user):
-            await cb.answer("This Message is Not For You!", show_alert=True)
+            await cb.answer("🙄 **ᴛʜɪs ᴍᴇssᴀɢᴇ ɪs ɴᴏᴛ ғᴏʀ ʏᴏᴜ**!", show_alert=True)
             return
-        await cb.message.edit("Generating Captcha ...")
+        await cb.message.edit("😏 **ɢᴇɴᴇʀᴀᴛɪɴɢ ᴄᴀᴘᴛᴄʜᴇ** ...")
         print("Fetching Captcha JSON Data ...")
         async with aiohttp.ClientSession() as session:
             async with session.get(f"https://api.abirhasan.wtf/captcha?token={Config.CAPTCHA_API_TOKEN}") as res:
@@ -101,7 +101,7 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
                             await bot.unban_chat_member(chat_id=cb.message.chat.id, user_id=cb.from_user.id)
                     except:
                         pass
-                    await cb.message.edit("Unable to get Captcha!")
+                    await cb.message.edit("😢 **ᴜɴᴀʙʟᴇ ᴛᴏ ɢᴇᴛ ᴄᴀᴘᴛᴄʜᴇ**!")
                     return
                 data = await res.json()
                 print("Done!")
@@ -111,9 +111,9 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
                 _emojis = ['🐻', '🐔', '☁️', '🔮', '🌀', '🌚', '💎', '🐶', '🍩', '🌏', '🐸', '🌕', '🍏', '🐵', '🌙',
                            '🐧', '🍎', '😀', '🐍', '❄️', '🥺', '🐢', '🌝', '🍺', '🍔', '🍒', '🍫', '🍡', '🌑', '🍟',
                            '☕️', '🍑', '🍷', '🍧', '🍕', '🍵', '🐋', '🐱', '💄', '👠', '💰', '💸', '🎹', '📦', '📍',
-                           '🐊', '🦕', '🐬', '💋', '🦎', '🦈', '🦷', '🦖', '🐠', '🐟','💀', '🎃', '👮', '⛑', '🪢', '🧶',
-                           '🧵', '🪡', '🧥', '🥼', '🥻', '🤏', '👑', '🎒', '🙊', '🐗', '🦋', '🦐', '🐀', '🐿', '🦔', '🦦', 
-                           '🦫', '🦡', '🦨', '🐇']
+                           '🐊', '🦕', '🐬', '💋', '🦎', '🦈', '🦷', '🦖', '🐠', '🐟','💀', '🎃', '👮', '⛑', '👨‍🔧', '🧶',
+                           '🧵', '😢', '🧥', '🥼', '🥻', '🤏', '👑', '🎒', '🙊', '🐗', '🦋', '🦐', '🐀', '🐿', '🦔', '🦦', 
+                           '💖', '🦡', '🦨', '🐇']
                 print("Cleaning Answer Emojis from Emojis List ...")
                 for a in range(len(__emojis)):
                     if __emojis[a] in _emojis:
@@ -151,8 +151,8 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
                 __message = await bot.send_photo(
                     chat_id=cb.message.chat.id,
                     photo=data["DownloadURL"],
-                    caption=f"{cb.from_user.mention}, select all the emojis you can see in the picture. "
-                            f"You are allowed only (3) mistakes.",
+                    caption=f"{cb.from_user.mention}, 😉 **sᴇʟᴇᴄᴛ ᴀʟʟ ᴛʜᴇ ᴇᴍᴏᴊɪᴇs ᴄᴀɴ sᴇᴇ ɪɴ ᴛʜɪs ᴘɪᴄᴛᴜʀᴇ**. "
+                            f"🤗 **ʏᴏᴜ ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ ᴏɴʟʏ** (3) **ᴍɪsᴛᴀᴄᴋᴇs**.",
                     reply_markup=InlineKeyboardMarkup(markup)
                 )
                 CaptchaDB[cb.from_user.id]["message_id"] = __message.message_id
@@ -162,17 +162,17 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
         __emoji = cb.data.rsplit("_", 1)[-1]
         __user = cb.data.split("_")[1]
         if cb.from_user.id != int(__user):
-            await cb.answer("This Message is Not For You!", show_alert=True)
+            await cb.answer("😜 **ᴜʟᴏ ʏᴇ ᴍᴇssᴀɢᴇ ᴛᴇʀᴇ ʟɪʏᴇ ɴɪ ʜᴀɪ**!", show_alert=True)
             return
         if cb.from_user.id not in CaptchaDB:
-            await cb.answer("Try Again After Re-Join!", show_alert=True)
+            await cb.answer("😉 **ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ ʀᴇ_ᴊᴏɪɴɪɴɢ**!", show_alert=True)
         if __emoji not in CaptchaDB.get(cb.from_user.id).get("emojis"):
             CaptchaDB[cb.from_user.id]["mistakes"] += 1
-            await cb.answer("You pressed wrong emoji!", show_alert=True)
+            await cb.answer("🙄 **ʏᴏᴜ ᴘʀᴇssᴇᴅ ᴡʀᴏɴɢ ᴇᴍᴏᴊɪ**!", show_alert=True)
             n = 3 - CaptchaDB[cb.from_user.id]['mistakes']
             if n == 0:
-                await cb.message.edit_caption(f"{cb.from_user.mention}, you failed to solve the captcha!\n\n"
-                                              f"You can try again after 10 minutes.",
+                await cb.message.edit_caption(f"{cb.from_user.mention}, **😢 **ʏᴏᴜ ғᴀɪʟᴇᴅ ᴛᴏ ᴘᴀss ᴛʜᴇ ᴄᴀᴘᴛᴄʜᴇ**!\n\n"
+                                              f"❤️ **ʏᴏᴜ ᴄᴀɴ ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 10ᴍ ᴏʀ ᴄᴏɴᴛᴀᴄᴛ** @Dr_Asad_Ali.",
                                               reply_markup=None)
                 await asyncio.sleep(600)
                 del CaptchaDB[cb.from_user.id]
@@ -180,7 +180,7 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
             markup = await MakeCaptchaMarkup(cb.message["reply_markup"]["inline_keyboard"], __emoji, "❌")
             await cb.message.edit_caption(
                 caption=f"{cb.from_user.mention}, select all the emojis you can see in the picture. "
-                        f"You are allowed only ({n}) mistakes.",
+                        f"😜  **ʏᴏᴜ ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ ᴏɴʟʏ** ({n}) **ᴍɪsᴛᴀᴄᴋᴇs**.",
                 reply_markup=InlineKeyboardMarkup(markup)
             )
             return
@@ -189,7 +189,7 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
             markup = await MakeCaptchaMarkup(cb.message["reply_markup"]["inline_keyboard"], __emoji, "✅")
             await cb.message.edit_reply_markup(reply_markup=InlineKeyboardMarkup(markup))
             if not CaptchaDB.get(cb.from_user.id).get("emojis"):
-                await cb.answer("You Passed the Captcha!", show_alert=True)
+                await cb.answer("❤️ **ʏᴏᴜ ᴘᴀssᴇᴅ ᴛʜᴇ ᴄᴀᴘᴛᴄʜᴇ**", show_alert=True)
                 del CaptchaDB[cb.from_user.id]
                 try:
                     UserOnChat = await bot.get_chat_member(user_id=cb.from_user.id, chat_id=cb.message.chat.id)
