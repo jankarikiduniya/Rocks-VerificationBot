@@ -40,9 +40,6 @@ async def start_handler(_, event: Message):
         InlineKeyboardButton('👑 ᴋɪɴɢ 👑︎', url=f'https://t.me/Dr_Asad_Ali'),
       ]
     )
-  )
-
-
 
 @CaptchaBot.on_chat_member_updated()
 async def welcome_handler(bot: Client, event: Message):
