@@ -24,7 +24,7 @@ CaptchaDB = {}
 
 @CaptchaBot.on_message(filters.command("start"))
 async def start_handler(_, event: Message):
-    await event.reply_text("**ʜᴇʟʟᴏ sᴡᴇᴇᴛ ʜᴇᴀʀᴛ ɪ ᴀᴍ ʀᴏᴄᴋs ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ʙᴏᴛ ᴛᴏ ᴠᴇʀɪғʏ ᴛʜᴇ ɴᴇᴡ ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs ɪɴ ᴛᴇʟᴇɢʀᴀᴍ**👻\n\n**ɢɪᴠᴇ ᴍᴇ ʜᴇᴀʀᴛ** [ʟᴏᴠᴇ](https://t.me/Give_Me_Heart) **ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ**.")
+    await event.reply_text("**ʜᴇʟʟᴏ sᴡᴇᴇᴛ ʜᴇᴀʀᴛ ɪ ᴀᴍ ʀᴏᴄᴋs ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ʙᴏᴛ ᴛᴏ ᴠᴇʀɪғʏ ᴛʜᴇ ɴᴇᴡ ɢʀᴏᴜᴘ ᴍᴇᴍʙᴇʀs ɪɴ ᴛᴇʟᴇɢʀᴀᴍ**👻\n\n**ɢɪᴠᴇ ᴍᴇ ʜᴇᴀʀᴛ** [ʟᴏᴠᴇ](https://t.me/Give_Me_Heart) [ᴊᴏɪɴ](t.me/Shayri_Music_Lovers) **ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ**.", disable_web_page_preview=True)
 
 
 @CaptchaBot.on_chat_member_updated()
@@ -74,7 +74,7 @@ async def welcome_handler(bot: Client, event: Message):
             )
             await bot.send_message(
                 chat_id=event.chat.id,
-                text=f"{event.from_user.mention}, ❤️ **ᴛᴏ ᴄʜᴀᴛ ʜᴇʀᴇ ᴘʟᴇᴀsᴇ ᴠɪʀɪғʏ ᴛʜᴀᴛ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀ ʙᴏᴛ**",
+                text=f"{event.from_user.mention}, ❤️ **ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ ᴛᴏ ᴄʜᴀᴛ ʜᴇʀᴇ ᴘʟᴇᴀsᴇ ᴠɪʀɪғʏ ᴛʜᴀᴛ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀ ʙᴏᴛ**",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("ᴠᴇʀɪғʏ ɴᴏᴡ", callback_data=f"startVerify_{str(event.from_user.id)}")]
                 ])
@@ -88,7 +88,7 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
     if cb.data.startswith("startVerify_"):
         __user = cb.data.split("_", 1)[-1]
         if cb.from_user.id != int(__user):
-            await cb.answer("🙄 **ᴛʜɪs ᴍᴇssᴀɢᴇ ɪs ɴᴏᴛ ғᴏʀ ʏᴏᴜ**!", show_alert=True)
+            await cb.answer("🙄 𝗧𝗵𝗶𝘀 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗜𝘀 𝗡𝗼𝘁 𝗙𝗼𝗿 𝗬𝗼𝘂 𝗜𝘁𝘁𝘂 🤏 𝗦𝗲𝘆 𝗡𝗼𝗼𝗯!", show_alert=True)
             return
         await cb.message.edit("😏 **ɢᴇɴᴇʀᴀᴛɪɴɢ ᴄᴀᴘᴛᴄʜᴇ** ...")
         print("Fetching Captcha JSON Data ...")
@@ -101,7 +101,7 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
                             await bot.unban_chat_member(chat_id=cb.message.chat.id, user_id=cb.from_user.id)
                     except:
                         pass
-                    await cb.message.edit("😢 **ᴜɴᴀʙʟᴇ ᴛᴏ ɢᴇᴛ ᴄᴀᴘᴛᴄʜᴇ**!")
+                    await cb.message.edit("😢 𝗨𝗻𝗮𝗯𝗹𝗲 𝗧𝗼 𝗚𝗲𝘁 𝗖𝗮𝗽𝘁𝗰𝗵𝗲!")
                     return
                 data = await res.json()
                 print("Done!")
@@ -162,13 +162,13 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
         __emoji = cb.data.rsplit("_", 1)[-1]
         __user = cb.data.split("_")[1]
         if cb.from_user.id != int(__user):
-            await cb.answer("😜 **ᴜʟᴏ ʏᴇ ᴍᴇssᴀɢᴇ ᴛᴇʀᴇ ʟɪʏᴇ ɴɪ ʜᴀɪ**!", show_alert=True)
+            await cb.answer("😜 𝗨𝗹𝗼 𝗬𝗲 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗧𝗲𝗿𝗲 𝗟𝗶𝘆𝗲 𝗡𝗶 𝗛𝗮𝗶!", show_alert=True)
             return
         if cb.from_user.id not in CaptchaDB:
-            await cb.answer("😉 **ᴛʀʏ ᴀɢᴀɪɴ ᴀғᴛᴇʀ ʀᴇ_ᴊᴏɪɴɪɴɢ**!", show_alert=True)
+            await cb.answer("😉 𝗧𝗿𝘆 𝗔𝗴𝗮𝗶𝗻 𝗔𝗳𝘁𝗲𝗿 𝗥𝗲_𝗝𝗼𝗶𝗻𝗶𝗻𝗴!", show_alert=True)
         if __emoji not in CaptchaDB.get(cb.from_user.id).get("emojis"):
             CaptchaDB[cb.from_user.id]["mistakes"] += 1
-            await cb.answer("🙄 **ʏᴏᴜ ᴘʀᴇssᴇᴅ ᴡʀᴏɴɢ ᴇᴍᴏᴊɪ**!", show_alert=True)
+            await cb.answer("🙄 𝗬𝗼𝘂 𝗣𝗿𝗲𝘀𝘀𝗲𝗱 𝗔 𝗪𝗿𝗼𝗻𝗴 𝗘𝗺𝗼𝗷𝗶!", show_alert=True)
             n = 3 - CaptchaDB[cb.from_user.id]['mistakes']
             if n == 0:
                 await cb.message.edit_caption(f"{cb.from_user.mention}, **😢 **ʏᴏᴜ ғᴀɪʟᴇᴅ ᴛᴏ ᴘᴀss ᴛʜᴇ ᴄᴀᴘᴛᴄʜᴇ**!\n\n"
@@ -189,7 +189,7 @@ async def buttons_handlers(bot: Client, cb: CallbackQuery):
             markup = await MakeCaptchaMarkup(cb.message["reply_markup"]["inline_keyboard"], __emoji, "✅")
             await cb.message.edit_reply_markup(reply_markup=InlineKeyboardMarkup(markup))
             if not CaptchaDB.get(cb.from_user.id).get("emojis"):
-                await cb.answer("❤️ **ʏᴏᴜ ᴘᴀssᴇᴅ ᴛʜᴇ ᴄᴀᴘᴛᴄʜᴇ**", show_alert=True)
+                await cb.answer("❤️ 𝗬𝗼𝘂 𝗣𝗮𝘀𝘀𝗲𝗱 𝗧𝗵𝗲 𝗖𝗮𝗽𝘁𝗰𝗵𝗲", show_alert=True)
                 del CaptchaDB[cb.from_user.id]
                 try:
                     UserOnChat = await bot.get_chat_member(user_id=cb.from_user.id, chat_id=cb.message.chat.id)
