@@ -41,3 +41,4 @@ The Easiest Way To Deploy This On Heroku For Any Browser Copy Link Supported
 - [Asad Ali](https://t.me/Dr_Asad_Ali)
 - [YouTube](https://www.youtube.com/c/JankariKiDuniya)
 - [Harshit Sharma](https://t.me/HarshitSharma361)
+- [Abir Hassan](https://github.com/AbirHasan2005)
