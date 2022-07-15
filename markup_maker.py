@@ -4,6 +4,7 @@
 # Rocks © @Dr_Asad_Ali © Rocks
 # Owner Asad + Harshit
 
+
 async def MakeCaptchaMarkup(markup, __emoji, indicator):
     __markup = markup
     for i in markup:
